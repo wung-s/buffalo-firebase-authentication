@@ -2,8 +2,12 @@ package actions
 
 import "github.com/gobuffalo/buffalo"
 
-// HomeHandler is a default handler to serve up
-// a home page.
-func HomeHandler(c buffalo.Context) error {
-	return c.Render(200, r.JSON(map[string]string{"message": "Welcome to Buffalo!"}))
+// OpenHandler does not require authentication
+func OpenHandler(c buffalo.Context) error {
+	return c.Render(200, r.JSON(map[string]string{"message": "This is an open endpoint!"}))
+}
+
+// SecureHandler requires authentication
+func SecureHandler(c buffalo.Context) error {
+	return c.Render(200, r.JSON(map[string]string{"message": "This is a secured endpoint !"}))
 }

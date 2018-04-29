@@ -12,3 +12,5 @@ firebase_authentication
 .vscode/
 .grifter/
 .env
+config/serviceAccountKey.json
+firebaseKey.json

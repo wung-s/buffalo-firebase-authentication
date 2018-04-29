@@ -1,34 +1,31 @@
-# Welcome to Buffalo!
+### Clone Repository
 
-Thank you for choosing Buffalo for your web development needs.
-
-## Database Setup
-
-It looks like you chose to set up your application using a postgres database! Fantastic!
-
-The first thing you need to do is open up the "database.yml" file and edit it to use the correct usernames, passwords, hosts, etc... that are appropriate for your environment.
-
-You will also need to make sure that **you** start/install the database of your choice. Buffalo **won't** install and start postgres for you.
+    $ git clone git@github.com:wung-s/buffalo-firebase-authentication.git firebase_authentication && cd firebase_authentication
 
 ### Create Your Databases
 
-Ok, so you've edited the "database.yml" file and started postgres, now Buffalo can create the databases in that file for you:
+    $ buffalo db create -a
 
-	$ buffalo db create -a
 ## Starting the Application
 
-Buffalo ships with a command that will watch your application and automatically rebuild the Go binary and any assets for you. To do that run the "buffalo dev" command:
+    $ buffalo dev
 
-	$ buffalo dev
+## Heroku
 
-If you point your browser to [http://127.0.0.1:3000](http://127.0.0.1:3000) you should see a "Welcome to Buffalo!" page.
+### Create app
 
-**Congratulations!** You now have your Buffalo application up and running.
+    $ heroku create my-app-name
 
-## What Next?
+Note: Necessary only if you have **NOT** deployed to Heroku yet
 
-We recommend you heading over to [http://gobuffalo.io](http://gobuffalo.io) and reviewing all of the great documentation there.
+### Set Environment Variables
 
-Good luck!
+    $ heroku config:set GO_ENV=production --app=my-app-name
+    $ heroku config:set FB_SERVICE_AC_KEY=serviceAccountKey.json --app=my-app-name
+
+### Deploy
+
+    $ heroku container:login
+    $ heroku container:push web
 
 [Powered by Buffalo](http://gobuffalo.io)

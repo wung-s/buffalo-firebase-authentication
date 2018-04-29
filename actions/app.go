@@ -39,6 +39,8 @@ func App() *buffalo.App {
 		// Set the request content type to JSON
 		app.Use(middleware.SetContentType("application/json"))
 
+		InitializeFirebase()
+
 		if ENV == "development" {
 			app.Use(middleware.ParameterLogger)
 		}
@@ -47,8 +49,11 @@ func App() *buffalo.App {
 		//  c.Value("tx").(*pop.PopTransaction)
 		// Remove to disable this.
 		app.Use(middleware.PopTransaction(models.DB))
+		app.Use(Authenticate)
+		app.Middleware.Skip(Authenticate, OpenHandler)
 
-		app.GET("/", HomeHandler)
+		app.GET("/open", OpenHandler)
+		app.GET("/secure", SecureHandler)
 
 	}
 
