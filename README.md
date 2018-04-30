@@ -1,3 +1,5 @@
+This example repository is part of a [blog post](https://medium.com/@wung_s/integrate-firebase-with-buffalo-for-api-authentication-d3d33ede8e0f) on implementing API authentication with [Buffalo](http://gobuffalo.io) and [Firebase](https://firebase.google.com/)
+
 ### Clone Repository
 
     $ git clone git@github.com:wung-s/buffalo-firebase-authentication.git firebase_authentication && cd firebase_authentication
